@@ -3,49 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Show Image by Name</title>
+    <title>Product Showcase</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            margin: 0;
+            padding: 0;
+            color: #333;
             text-align: center;
-            padding: 20px;
         }
-        #image-container img {
-            max-width: 100%;
-            height: auto;
-            display: none;
-            margin-top: 20px;
+
+        h1 {
+            margin: 20px 0;
+            color: #fff;
+            font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-card h3 {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+
+        .product-card p {
+            font-size: 0.9em;
+            color: #777;
+            padding: 0 10px;
+        }
+
+        .product-card button {
+            display: block;
+            margin: 10px auto 20px;
+            padding: 10px 20px;
+            border: none;
+            background: #ff6f61;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .product-card button:hover {
+            background: #e55b50;
         }
     </style>
 </head>
 <body>
-    <h1>Find Your Image</h1>
-    <p>Type a name to see the associated image:</p>
-    <input type="text" id="nameInput" placeholder="Enter a name">
-    <button onclick="showImage()">Show Image</button>
-
-    <div id="image-container">
-        <img id="yuri" src="yuri.jpg" alt="Yuri's Image">
-        <img id="itzel" src="itzel.jpg" alt="Itzel's Image">
-        <img id="mariel" src="mariel.jpg" alt="Mariel's Image">
+    <h1>Explore Our Products</h1>
+    <div class="product-grid">
+        <div class="product-card">
+            <img src="https://via.placeholder.com/300x200?text=Product+1" alt="Product 1">
+            <h3>Product 1</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <button>Buy Now</button>
+        </div>
+        <div class="product-card">
+            <img src="https://via.placeholder.com/300x200?text=Product+2" alt="Product 2">
+            <h3>Product 2</h3>
+            <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <button>Buy Now</button>
+        </div>
+        <div class="product-card">
+            <img src="https://via.placeholder.com/300x200?text=Product+3" alt="Product 3">
+            <h3>Product 3</h3>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+            <button>Buy Now</button>
+        </div>
+        <div class="product-card">
+            <img src="https://via.placeholder.com/300x200?text=Product+4" alt="Product 4">
+            <h3>Product 4</h3>
+            <p>Nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.</p>
+            <button>Buy Now</button>
+        </div>
     </div>
-
-    <script>
-        function showImage() {
-            const inputName = document.getElementById('nameInput').value.toLowerCase();
-            const images = document.querySelectorAll('#image-container img');
-
-            // Hide all images
-            images.forEach(img => img.style.display = 'none');
-
-            // Show the image matching the input name
-            const selectedImage = document.getElementById(inputName);
-            if (selectedImage) {
-                selectedImage.style.display = 'block';
-            } else {
-                alert('No image found for that name!');
-            }
-        }
-    </script>
 </body>
 </html>
