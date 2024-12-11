@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Image by Name</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        #image-container img {
+            max-width: 100%;
+            height: auto;
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Find Your Image</h1>
+    <p>Type a name to see the associated image:</p>
+    <input type="text" id="nameInput" placeholder="Enter a name">
+    <button onclick="showImage()">Show Image</button>
+
+    <div id="image-container">
+        <img id="john" src="path/to/john-image.jpg" alt="John's Image">
+        <img id="jane" src="path/to/jane-image.jpg" alt="Jane's Image">
+        <img id="alexis" src="path/to/alexis-image.jpg" alt="Alexis's Image">
+    </div>
+
+    <script>
+        function showImage() {
+            const inputName = document.getElementById('nameInput').value.toLowerCase();
+            const images = document.querySelectorAll('#image-container img');
+
+            // Hide all images
+            images.forEach(img => img.style.display = 'none');
+
+            // Show the image matching the input name
+            const selectedImage = document.getElementById(inputName);
+            if (selectedImage) {
+                selectedImage.style.display = 'block';
+            } else {
+                alert('No image found for that name!');
+            }
+        }
+    </script>
+</body>
+</html>
